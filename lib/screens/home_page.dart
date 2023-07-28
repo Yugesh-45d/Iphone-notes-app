@@ -81,10 +81,89 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ],
                       ),
-                      SvgPicture.asset(
-                        "assets/pending.svg",
-                        height: 28,
-                        color: secondaryColor,
+                      GestureDetector(
+                        onTap: () {
+                          showCupertinoModalPopup(
+                            context: context,
+                            builder: (BuildContext context) => Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: CupertinoActionSheet(
+                                actions: <CupertinoActionSheetAction>[
+                                  CupertinoActionSheetAction(
+                                    child: const Text(
+                                      'Sort: Title A->Z',
+                                      style: TextStyle(
+                                        color: thirdColor,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                  ),
+                                  CupertinoActionSheetAction(
+                                    child: const Text(
+                                      'Sort: Title Z->A',
+                                      style: TextStyle(
+                                        color: thirdColor,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                  ),
+                                  CupertinoActionSheetAction(
+                                    child: const Text(
+                                      'Sort notes: By time',
+                                      style: TextStyle(
+                                        color: thirdColor,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                  ),
+                                  CupertinoActionSheetAction(
+                                    child: const Text(
+                                      'Settings',
+                                      style: TextStyle(
+                                        color: thirdColor,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                  ),
+                                ],
+                                cancelButton: CupertinoActionSheetAction(
+                                  child: const Text(
+                                    'Cancel',
+                                    style: TextStyle(
+                                      color: thirdColor,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                        child: SvgPicture.asset(
+                          "assets/pending.svg",
+                          height: 28,
+                          color: secondaryColor,
+                        ),
                       ),
                     ],
                   ),
@@ -164,9 +243,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          //bottom Nav bar milauna, cupertino vitra custom banayera, shrinkwrap true and neverscrollable physics true garumna
           bottomNavigationBar: BottomNavigationBar(
-            // backgroundColor: primaryColor,
             onTap: (value) {
               if (value == 1) {
                 createNewNote();
@@ -185,7 +262,7 @@ class _HomePageState extends State<HomePage> {
               BottomNavigationBarItem(
                 icon: SvgPicture.asset(
                   "assets/edit.svg",
-                  height: 28,
+                  height: 24,
                   color: secondaryColor,
                 ),
                 label: '',
