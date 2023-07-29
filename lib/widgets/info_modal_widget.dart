@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_final_fields
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +15,8 @@ class _InfoModalWidgetState extends State<InfoModalWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 376,
+      // height: 376,
+      height: 576,
       decoration: BoxDecoration(
         color: primaryColor,
         borderRadius: BorderRadius.only(

@@ -4,7 +4,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart' as quill;
-// import 'package:flutter_quill/flutter_quill.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:notes/datas/note_data.dart';
 import 'package:notes/models/note_model.dart';
@@ -133,22 +132,22 @@ class _NotePageState extends State<NotePage> {
                       children: [
                         Icon(
                           CupertinoIcons.share,
-                          color: Colors.grey,
+                          color: secondaryColor,
                         ),
                         SizedBox(
                           width: 20,
                         ),
                         GestureDetector(
-                           onTap: () {
-                  showModalBottomSheet(
-                    isScrollControlled: true,
-                    context: context,
-                    backgroundColor: Colors.transparent,
-                    builder: (context) {
-                      return InfoModalWidget();
-                    },
-                  );
-                },
+                          onTap: () {
+                            showModalBottomSheet(
+                              isScrollControlled: true,
+                              context: context,
+                              backgroundColor: Colors.transparent,
+                              builder: (context) {
+                                return InfoModalWidget();
+                              },
+                            );
+                          },
                           child: SvgPicture.asset(
                             "assets/pending.svg",
                             height: 28,

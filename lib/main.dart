@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:notes/datas/note_data.dart';
 import 'package:notes/screens/home_page.dart';
@@ -30,7 +29,7 @@ class MyApp extends StatelessWidget {
             title: "Notes",
             theme: ThemeData(
               brightness: Brightness.light,
-              useMaterial3: true,
+              // colorScheme: ColorScheme.fromSeed(seedColor: primaryColor),
             ),
             home: HomePage(),
           ),

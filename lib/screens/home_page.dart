@@ -50,9 +50,6 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Consumer<NoteData>(
       builder: (context, value, child) => SafeArea(
-        /*Yesma cupertino Scaffold use grna try grne, 
-      cupertino wala ma bottom nav bar hudaina raixa so nagareko aile lai
-      */
         child: Scaffold(
           backgroundColor: primaryColor,
           body: SingleChildScrollView(

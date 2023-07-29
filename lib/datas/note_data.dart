@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_final_fields
+
 import 'package:flutter/cupertino.dart';
 import 'package:notes/models/note_model.dart';
 
