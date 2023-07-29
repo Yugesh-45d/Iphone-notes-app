@@ -15,8 +15,7 @@ class _InfoModalWidgetState extends State<InfoModalWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // height: 376,
-      height: 576,
+      height: 376,
       decoration: BoxDecoration(
         color: primaryColor,
         borderRadius: BorderRadius.only(
