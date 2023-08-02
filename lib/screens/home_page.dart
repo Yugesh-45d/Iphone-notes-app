@@ -186,56 +186,69 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   SizedBox(height: 8),
-                  CupertinoListSection.insetGrouped(
+                  value.getAllNotes().isNotEmpty?  CupertinoListSection.insetGrouped(
                     margin: EdgeInsets.all(4),
                     children: List.generate(
                       value.getAllNotes().length,
-                      (index) => CupertinoListTile.notched(
-                        title: Text(
-                          value.getAllNotes()[index].text,
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        subtitle: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "27.07.2023,  ${value.getAllNotes()[index].text}",
-                              style: TextStyle(
-                                fontSize: 16,
-                              ),
+                      (index) => GestureDetector(
+                        onLongPress: () {
+                          // print("Hello World");
+                        },
+                        child: CupertinoListTile.notched(
+                          title:  Text(
+                            value.getAllNotes()[index].text,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
                             ),
-                            Row(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 4),
-                                  child: Icon(
-                                    CupertinoIcons.folder,
-                                    color: Colors.grey,
-                                    size: 16,
-                                  ),
+                          ),
+                          subtitle: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "27.07.2023,  ${value.getAllNotes()[index].text}",
+                                style: TextStyle(
+                                  fontSize: 16,
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                    left: 8,
-                                    top: 4,
+                              ),
+                              Row(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 4),
+                                    child: Icon(
+                                      CupertinoIcons.folder,
+                                      color: Colors.grey,
+                                      size: 16,
+                                    ),
                                   ),
-                                  child: Text(
-                                    "Notes",
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                      left: 8,
+                                      top: 4,
+                                    ),
+                                    child: Text(
+                                      "Notes",
+                                    ),
                                   ),
-                                ),
-                              ],
-                            )
-                          ],
+                                ],
+                              )
+                            ],
+                          ),
+                          // additionalInfo: Text("12 days ago"),
+                          // trailing: CupertinoListTileChevron(),
+                          onTap: () {
+                            goToNotePage(value.getAllNotes()[index], false,);
+                          }
+                          
+                        
+                          
+                              
+                              
+                              
+                              
                         ),
-                        // additionalInfo: Text("12 days ago"),
-                        // trailing: CupertinoListTileChevron(),
-                        onTap: () =>
-                            goToNotePage(value.getAllNotes()[index], false),
                       ),
                     ),
-                  ),
+                  ) : Center(child: Text("No Notes")),
                 ],
               ),
             ),

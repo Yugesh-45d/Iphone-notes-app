@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, prefer_final_fields, must_be_immutable, prefer_const_literals_to_create_immutables, deprecated_member_use
 // ignore_for_file: prefer_const_constructors
 
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart' as quill;
@@ -27,6 +28,7 @@ class NotePage extends StatefulWidget {
 
 class _NotePageState extends State<NotePage> {
   quill.QuillController _controller = quill.QuillController.basic();
+  String text = '';
 
   @override
   void initState() {
@@ -50,7 +52,7 @@ class _NotePageState extends State<NotePage> {
     int id = Provider.of<NoteData>(context, listen: false).getAllNotes().length;
 
     //get text from editor
-    String text = _controller.document.toPlainText();
+    text = _controller.document.toPlainText();
 
     //add the new note
     Provider.of<NoteData>(context, listen: false).addNewNote(
@@ -60,7 +62,7 @@ class _NotePageState extends State<NotePage> {
 
   //update existing note
   void updateNote() {
-    String text = _controller.document.toPlainText();
+    text = _controller.document.toPlainText();
     Provider.of<NoteData>(context, listen: false).updateNote(widget.note, text);
   }
 
@@ -78,6 +80,12 @@ class _NotePageState extends State<NotePage> {
     setState(() {
       _controller = newController;
     });
+  }
+
+  void deleteNote() {
+    text = _controller.document.toPlainText();
+
+    Provider.of<NoteData>(context, listen: false).deleteNote(widget.note);
   }
 
   @override
@@ -106,9 +114,12 @@ class _NotePageState extends State<NotePage> {
                         if (widget.isNewNote &&
                             !_controller.document.isEmpty()) {
                           addNewNote();
+                        } else if (text.isEmpty) {
+                          deleteNote();
                         } else {
                           updateNote();
                         }
+
                         Navigator.pop(context);
                       },
                       child: Row(
